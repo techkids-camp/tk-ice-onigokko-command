@@ -30,9 +30,10 @@ namespace custom {
     //% blockId=hole
     //% block=あな
     export function hole(): void {
-
         wait_time = 5000
         p_direction = player.getOrientation()
+        min_pos = world(-2752, 65, -183)
+        max_pos = world(-2697, 65, -171)
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
             hole_direction = 1
@@ -43,141 +44,146 @@ namespace custom {
         } else {
             hole_direction = 3
         }
-        player.say(hole_direction)
         p_pos = player.position()
-        blocks.deleteStructure(player.name())
-        // player.say(hole_direction)
-        // 穴の向きをhole_direction で設定
-        if (hole_direction == 1) {
-            s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -4)
-            e_pos = world(p_pos.getValue(Axis.X) + 0, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -3)
-            blocks.saveStructure(
-                player.name(),
-                pos(-1, -2, -2),
-                pos(1, 0, -4),
-                false,
-                DISK,
-                true
-            )
-            blocks.fill(
-                AIR,
-                pos(-1, -2, -2),
-                pos(1, 0, -4),
-                FillOperation.Replace
-            )
-            loops.pause(wait_time)
-            mobs.execute(
-                mobs.near(
-                    mobs.target(ALL_PLAYERS),
-                    e_pos,
-                    2
-                ),
-                pos(0, 0, 0),
-                "/tp ~+4 ~+4 ~"
-            )
-            blocks.loadStructure(
-                player.name(),
-                s_pos
-            )
-        }
-        // player.say(hole_direction)
-        // 穴の向きをhole_direction で設定
-        if (hole_direction == 2) {
-            s_pos = world(p_pos.getValue(Axis.X) + 2, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
-            blocks.saveStructure(
-                player.name(),
-                pos(2, -2, -1),
-                pos(4, 0, 1),
-                false,
-                DISK,
-                true
-            )
-            blocks.fill(
-                AIR,
-                pos(2, -2, -1),
-                pos(4, 0, 1),
-                FillOperation.Replace
-            )
-            loops.pause(wait_time)
-            mobs.execute(
-                mobs.near(
-                    mobs.target(ALL_PLAYERS),
-                    s_pos,
-                    4
-                ),
-                pos(0, 0, 0),
-                "/tp ~ ~+4 ~-2"
-            )
-            blocks.loadStructure(
-                player.name(),
-                s_pos
-            )
-        }
-        // player.say(hole_direction)
-        // 穴の向きをhole_direction で設定
-        if (hole_direction == 3) {
-            s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + 2)
-            blocks.saveStructure(
-                player.name(),
-                pos(-1, -2, 2),
-                pos(1, 0, 4),
-                false,
-                DISK,
-                true
-            )
-            blocks.fill(
-                AIR,
-                pos(-1, -2, 2),
-                pos(1, 0, 4),
-                FillOperation.Replace
-            )
-            loops.pause(wait_time)
-            mobs.execute(
-                mobs.near(
-                    mobs.target(ALL_PLAYERS),
-                    s_pos,
-                    2
-                ),
-                pos(0, 0, 0),
-                "/tp ~ ~+4 ~+2"
-            )
-            blocks.loadStructure(
-                player.name(),
-                s_pos
-            )
-        }
-        // player.say(hole_direction)
-        // 穴の向きをhole_direction で設定
-        if (hole_direction == 4) {
-            s_pos = world(p_pos.getValue(Axis.X) + -4, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
-            blocks.saveStructure(
-                player.name(),
-                pos(-4, -2, -1),
-                pos(-2, 0, 1),
-                false,
-                DISK,
-                true
-            )
-            blocks.fill(
-                AIR,
-                pos(-4, -2, -1),
-                pos(-2, 0, 1),
-                FillOperation.Replace
-            )
-            loops.pause(wait_time)
-            mobs.execute(
-                mobs.near(
-                    mobs.target(ALL_PLAYERS),
-                    s_pos,
-                    2
-                ),
-                pos(0, 0, 0),
-                "/tp ~4 ~+2 ~"
-            )
-            blocks.loadStructure(
-                player.name(),
-                s_pos
-            )
+        if (true) {
+            blocks.deleteStructure(player.name())
+            // player.say(hole_direction)
+            // 穴の向きをhole_direction で設定
+            if (!(p_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && p_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (p_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && p_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z)))) {
+                if (hole_direction == 1) {
+                    s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -4)
+                    e_pos = world(p_pos.getValue(Axis.X) + 0, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -3)
+                    blocks.saveStructure(
+                        player.name(),
+                        pos(-1, -2, -2),
+                        pos(1, 0, -4),
+                        false,
+                        DISK,
+                        true
+                    )
+                    blocks.fill(
+                        AIR,
+                        pos(-1, -2, -2),
+                        pos(1, 0, -4),
+                        FillOperation.Replace
+                    )
+                    loops.pause(wait_time)
+                    mobs.execute(
+                        mobs.near(
+                            mobs.target(ALL_PLAYERS),
+                            e_pos,
+                            2
+                        ),
+                        pos(0, 0, 0),
+                        "/tp ~+4 ~+4 ~"
+                    )
+                    blocks.loadStructure(
+                        player.name(),
+                        s_pos
+                    )
+                }
+                // player.say(hole_direction)
+                // 穴の向きをhole_direction で設定
+                if (hole_direction == 2) {
+                    s_pos = world(p_pos.getValue(Axis.X) + 2, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
+                    blocks.saveStructure(
+                        player.name(),
+                        pos(2, -2, -1),
+                        pos(4, 0, 1),
+                        false,
+                        DISK,
+                        true
+                    )
+                    blocks.fill(
+                        AIR,
+                        pos(2, -2, -1),
+                        pos(4, 0, 1),
+                        FillOperation.Replace
+                    )
+                    loops.pause(wait_time)
+                    mobs.execute(
+                        mobs.near(
+                            mobs.target(ALL_PLAYERS),
+                            s_pos,
+                            4
+                        ),
+                        pos(0, 0, 0),
+                        "/tp ~ ~+4 ~-2"
+                    )
+                    blocks.loadStructure(
+                        player.name(),
+                        s_pos
+                    )
+                }
+                // player.say(hole_direction)
+                // 穴の向きをhole_direction で設定
+                if (hole_direction == 3) {
+                    s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + 2)
+                    blocks.saveStructure(
+                        player.name(),
+                        pos(-1, -2, 2),
+                        pos(1, 0, 4),
+                        false,
+                        DISK,
+                        true
+                    )
+                    blocks.fill(
+                        AIR,
+                        pos(-1, -2, 2),
+                        pos(1, 0, 4),
+                        FillOperation.Replace
+                    )
+                    loops.pause(wait_time)
+                    mobs.execute(
+                        mobs.near(
+                            mobs.target(ALL_PLAYERS),
+                            s_pos,
+                            2
+                        ),
+                        pos(0, 0, 0),
+                        "/tp ~ ~+4 ~+2"
+                    )
+                    blocks.loadStructure(
+                        player.name(),
+                        s_pos
+                    )
+                }
+                // player.say(hole_direction)
+                // 穴の向きをhole_direction で設定
+                if (hole_direction == 4) {
+                    s_pos = world(p_pos.getValue(Axis.X) + -4, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
+                    blocks.saveStructure(
+                        player.name(),
+                        pos(-4, -2, -1),
+                        pos(-2, 0, 1),
+                        false,
+                        DISK,
+                        true
+                    )
+                    blocks.fill(
+                        AIR,
+                        pos(-4, -2, -1),
+                        pos(-2, 0, 1),
+                        FillOperation.Replace
+                    )
+                    loops.pause(wait_time)
+                    mobs.execute(
+                        mobs.near(
+                            mobs.target(ALL_PLAYERS),
+                            s_pos,
+                            2
+                        ),
+                        pos(0, 0, 0),
+                        "/tp ~4 ~+2 ~"
+                    )
+                    blocks.loadStructure(
+                        player.name(),
+                        s_pos
+                    )
+                }
+            }
+        } else {
+            player.say("しっぱい")
         }
     }
     //% blockId=jump
