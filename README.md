@@ -8,7 +8,7 @@
 * [https://minecraft.makecode.com/](https://minecraft.makecode.com/) を開く
 * **新しいプロジェクト** をクリックしてください
 * ギアボタンメニューの中にある **拡張機能** をクリックしてください
-* **https://github.com/yuchan2215/tk-onigokko-command** を検索してインポートします。
+* **https://github.com/techkids-camp/tk-onigokko-command** を検索してインポートします。
 
 ## このプロジェクトを編集します
 
@@ -16,7 +16,7 @@ MakeCode でこのリポジトリを編集します。
 
 * [https://minecraft.makecode.com/](https://minecraft.makecode.com/) を開く
 * **読み込む** をクリックし、 **URLから読み込む...** をクリックしてください
-* **https://github.com/yuchan2215/tk-onigokko-command** を貼り付けてインポートをクリックしてください
+* **https://github.com/techkids-camp/tk-onigokko-command** を貼り付けてインポートをクリックしてください
 
 #### メタデータ (検索、レンダリングに使用)
 
