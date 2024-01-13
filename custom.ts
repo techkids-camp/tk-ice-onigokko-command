@@ -43,15 +43,16 @@ namespace custom {
         } else {
             hole_direction = 3
         }
+        player.say(hole_direction)
         p_pos = player.position()
-        blocks.deleteStructure("hole_blocks")
+        blocks.deleteStructure(player.name())
         // player.say(hole_direction)
         // 穴の向きをhole_direction で設定
         if (hole_direction == 1) {
             s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -4)
             e_pos = world(p_pos.getValue(Axis.X) + 0, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -3)
             blocks.saveStructure(
-                "hole_blocks",
+                player.name(),
                 pos(-1, -2, -2),
                 pos(1, 0, -4),
                 false,
@@ -72,10 +73,10 @@ namespace custom {
                     2
                 ),
                 pos(0, 0, 0),
-                "/tp ~+4 ~+2 ~"
+                "/tp ~+4 ~+4 ~"
             )
             blocks.loadStructure(
-                "hole_blocks",
+                player.name(),
                 s_pos
             )
         }
@@ -84,7 +85,7 @@ namespace custom {
         if (hole_direction == 2) {
             s_pos = world(p_pos.getValue(Axis.X) + 2, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
             blocks.saveStructure(
-                "hole_blocks",
+                player.name(),
                 pos(2, -2, -1),
                 pos(4, 0, 1),
                 false,
@@ -102,13 +103,13 @@ namespace custom {
                 mobs.near(
                     mobs.target(ALL_PLAYERS),
                     s_pos,
-                    2
+                    4
                 ),
                 pos(0, 0, 0),
-                "/tp ~+4 ~+2 ~"
+                "/tp ~ ~+4 ~-2"
             )
             blocks.loadStructure(
-                "hole_blocks",
+                player.name(),
                 s_pos
             )
         }
@@ -117,7 +118,7 @@ namespace custom {
         if (hole_direction == 3) {
             s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + 2)
             blocks.saveStructure(
-                "hole_blocks",
+                player.name(),
                 pos(-1, -2, 2),
                 pos(1, 0, 4),
                 false,
@@ -138,10 +139,10 @@ namespace custom {
                     2
                 ),
                 pos(0, 0, 0),
-                "/tp ~+4 ~+2 ~"
+                "/tp ~ ~+4 ~+2"
             )
             blocks.loadStructure(
-                "hole_blocks",
+                player.name(),
                 s_pos
             )
         }
@@ -150,7 +151,7 @@ namespace custom {
         if (hole_direction == 4) {
             s_pos = world(p_pos.getValue(Axis.X) + -4, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -1)
             blocks.saveStructure(
-                "hole_blocks",
+                player.name(),
                 pos(-4, -2, -1),
                 pos(-2, 0, 1),
                 false,
@@ -171,10 +172,10 @@ namespace custom {
                     2
                 ),
                 pos(0, 0, 0),
-                "/tp ~+4 ~+2 ~"
+                "/tp ~4 ~+2 ~"
             )
             blocks.loadStructure(
-                "hole_blocks",
+                player.name(),
                 s_pos
             )
         }
