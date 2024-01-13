@@ -16,6 +16,9 @@ namespace custom {
     let p_pos: Position = null
     let s_pos: Position = null
     let e_pos: Position = null
+    let min_pos: Position = null
+    let max_pos: Position = null
+    let to_pos: Position = null
 
 
     //% blockId=speed
@@ -180,5 +183,58 @@ namespace custom {
     //% block="じゃんぷ"
     export function jump(): void {
         mobs.applyEffect(JUMP_BOOST, mobs.target(LOCAL_PLAYER), 10, 2)
+    }
+
+    //% blockId=spy
+    //% block="スパイダー"
+    export function spy(): void {
+        blocks.replace(
+            COBWEB,
+            AIR,
+            posCamera(-1, 0, -2),
+            posCamera(1, 0, -4)
+        )
+    }
+
+    //% blockId=tp
+    //% block="テレポート"
+    export function tp(): void {
+        min_pos = world(-2864, 85, -252)
+        max_pos = world(-2688, 0, -128)
+        p_direction = player.getOrientation()
+        // player.say(p_direction)
+        if (p_direction > -45 && p_direction < 45) {
+            hole_direction = 1
+        } else if (p_direction >= 45 && p_direction < 135) {
+            hole_direction = 2
+        } else if (p_direction >= -135 && p_direction < -45) {
+            hole_direction = 4
+        } else {
+            hole_direction = 3
+        }
+        // player.say(hole_direction)
+        // 穴の向きをhole_direction で設定
+        if (hole_direction == 1) {
+            to_pos = pos(0, 1, 15)
+        } else if (hole_direction == 2) {
+            to_pos = pos(-15, 1, 0)
+        } else if (hole_direction == 3) {
+            to_pos = pos(0, 1, -15)
+        } else if (hole_direction == 4) {
+            to_pos = pos(15, 1, 0)
+        } else {
+
+        }
+        to_pos = to_pos.toWorld()
+        player.say(to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X))
+        player.say(to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X))
+        if (to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z))) {
+            if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
+                player.teleport(to_pos)
+                player.say("tp")
+            }
+        } else {
+            player.say("しっぱい")
+        }
     }
 }
