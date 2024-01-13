@@ -188,12 +188,21 @@ namespace custom {
     //% blockId=spy
     //% block="スパイダー"
     export function spy(): void {
-        blocks.replace(
-            COBWEB,
-            AIR,
-            posCamera(-1, 0, -2),
-            posCamera(1, 0, -4)
-        )
+        s_pos = posCamera(-1, 0, -2).toWorld()
+    to_pos = posCamera(1, 0, -4).toWorld()
+    blocks.replace(
+    COBWEB,
+    AIR,
+    s_pos,
+    to_pos
+    )
+    loops.pause(10000)
+    blocks.replace(
+    AIR,
+    COBWEB,
+    s_pos,
+    to_pos
+    )
     }
 
     //% blockId=tp
