@@ -2,9 +2,10 @@
 ### @hideIteration true
 ### @hideIteration true
 
-# コマンドを使えるようにしよう
+# マイクラで鬼ごっこ
+## コマンドを使えるようにしよう
 
-みぎしたの![](https://raw.githubusercontent.com/camp-minecraft/TechkidsCampTutorial/master/images/playbutton.png)をおしたあと、tキーをおしてgoとrunをいれてプログラムをうごかしてみよう！
+みぎしたの![](https://raw.githubusercontent.com/camp-minecraft/TechkidsCampTutorial/master/images/playbutton.png)をおしておこう。
 
 ```ghost
 
