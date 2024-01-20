@@ -13,7 +13,6 @@ custom.hole()
 custom.jump()
 custom.spy()
 custom.tp()
-
 ```
 
 ```template
