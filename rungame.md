@@ -4,7 +4,7 @@
 
 # car-dealer
 
-#コマンドを使えるようにしよう
+# コマンドを使えるようにしよう
 
 みぎしたの![](https://raw.githubusercontent.com/camp-minecraft/TechkidsCampTutorial/master/images/playbutton.png)をおしたあと、tキーをおしてgoとrunをいれてプログラムをうごかしてみよう！
 
