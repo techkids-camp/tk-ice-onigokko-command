@@ -10,7 +10,7 @@
         "main.ts",
         "README.md",
         "custom.ts",
-        "run_game.md"
+        "rungame.md"
     ],
     "testFiles": [
         "test.ts"
