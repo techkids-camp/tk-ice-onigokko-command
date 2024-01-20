@@ -32,8 +32,8 @@ namespace custom {
     export function hole(): void {
         wait_time = 5000
         p_direction = player.getOrientation()
-        min_pos = world(-2752, 65, -183)
-        max_pos = world(-2697, 65, -171)
+        min_pos = world(1215, 80, 1230)
+        max_pos = world(1221, 0, 1236)
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
             hole_direction = 1
@@ -215,8 +215,8 @@ namespace custom {
     //% blockId=tp
     //% block="テレポート"
     export function tp(): void {
-        min_pos = world(-2864, 85, -252)
-        max_pos = world(-2688, 0, -128)
+        min_pos = world(1097, 76, 1165)
+        max_pos = world(1271, 0, 1287)
         p_direction = player.getOrientation()
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
