@@ -17,19 +17,19 @@ custom.tp()
 ```
 
 ```template
-player.onChat("sp", function () {
+player.onChat("up", function () {
     custom.speed()
 })
 player.onChat("tp", function () {
     custom.tp()
 })
-player.onChat("jmp", function () {
+player.onChat("ju", function () {
     custom.jump()
 })
-player.onChat("hol", function () {
+player.onChat("ho", function () {
     custom.hole()
 })
-player.onChat("spy", function () {
+player.onChat("sp", function () {
     custom.spy()
 })
 
