@@ -32,8 +32,8 @@ namespace custom {
     export function hole(): void {
         wait_time = 5000
         p_direction = player.getOrientation()
-        min_pos = world(1215, 80, 1230)
-        max_pos = world(1221, 0, 1236)
+        min_pos = world(1209, 80, 1227)
+        max_pos = world(1224, 0, 1233)
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
             hole_direction = 1
@@ -50,6 +50,11 @@ namespace custom {
             // player.say(hole_direction)
             // 穴の向きをhole_direction で設定
             if (!(p_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && p_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (p_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && p_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z)))) {
+                player.say(p_pos.getValue(Axis.X) > min_pos.getValue(Axis.X))
+                player.say(p_pos.getValue(Axis.X) < max_pos.getValue(Axis.X))
+                player.say(p_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z))
+                player.say(p_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z))
+
                 if (hole_direction == 1) {
                     s_pos = world(p_pos.getValue(Axis.X) + -1, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -4)
                     e_pos = world(p_pos.getValue(Axis.X) + 0, p_pos.getValue(Axis.Y) + -2, p_pos.getValue(Axis.Z) + -3)
