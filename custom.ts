@@ -243,8 +243,6 @@ namespace custom {
 
         }
         to_pos = to_pos.toWorld()
-        player.say(to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X))
-        player.say(to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X))
         if (to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z))) {
             if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
                 player.teleport(to_pos)
