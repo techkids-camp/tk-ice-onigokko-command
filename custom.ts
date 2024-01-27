@@ -27,7 +27,7 @@ namespace custom {
     //% blockId=speed
     //% block=すぴーど
     export function speed(): void {
-        mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 3, 2)
+        mobs.applyEffect(SPEED, mobs.target(LOCAL_PLAYER), 10, 2)
     }
 
     //% blockId=hole
@@ -225,7 +225,7 @@ namespace custom {
 
         jail_min_pos = world(1126, 72, 1192)
         jail_max_pos = world(1151, 64, 1224)
-        
+
         p_direction = player.getOrientation()
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
@@ -271,7 +271,7 @@ namespace custom {
                 player.say("tp")
             }
         } else {
-            player.say("しっぱい")
+            player.say("ここではつかえないよ")
         }
     }
 }
