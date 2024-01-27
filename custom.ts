@@ -264,7 +264,7 @@ namespace custom {
         
 
         if ((to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z)))
-        || !((playerX >= jailMinX && playerX <= jailMaxX) && (playerZ >= jailMinZ && playerZ <= jailMaxZ))
+        && !((playerX >= jailMinX && playerX <= jailMaxX) && (playerZ >= jailMinZ && playerZ <= jailMaxZ))
         ) {
             if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
                 player.teleport(to_pos)
