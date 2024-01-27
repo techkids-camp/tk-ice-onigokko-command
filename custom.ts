@@ -38,10 +38,6 @@ namespace custom {
         min_pos = world(1209, 80, 1227)
         max_pos = world(1224, 0, 1239)
 
-        jail_min_pos = world(1126, 72, 1192)
-        jail_max_pos = world(1151, 64, 1224)
-
-
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
             hole_direction = 1
@@ -226,6 +222,10 @@ namespace custom {
     export function tp(): void {
         min_pos = world(1097, 76, 1165)
         max_pos = world(1271, 0, 1287)
+
+        jail_min_pos = world(1126, 72, 1192)
+        jail_max_pos = world(1151, 64, 1224)
+        
         p_direction = player.getOrientation()
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
