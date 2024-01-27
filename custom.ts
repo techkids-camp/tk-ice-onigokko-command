@@ -20,6 +20,9 @@ namespace custom {
     let max_pos: Position = null
     let to_pos: Position = null
 
+    let jail_min_pos: Position = null
+    let jail_max_pos: Position = null
+
 
     //% blockId=speed
     //% block=すぴーど
@@ -34,6 +37,11 @@ namespace custom {
         p_direction = player.getOrientation()
         min_pos = world(1209, 80, 1227)
         max_pos = world(1224, 0, 1239)
+
+        jail_min_pos = world(1126, 72, 1192)
+        jail_max_pos = world(1151, 64, 1224)
+
+
         // player.say(p_direction)
         if (p_direction > -45 && p_direction < 45) {
             hole_direction = 1
@@ -243,7 +251,21 @@ namespace custom {
 
         }
         to_pos = to_pos.toWorld()
-        if (to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z))) {
+
+        const playerPos = player.position();
+        const playerX = playerPos.getValue(Axis.X);
+        const playerZ = playerPos.getValue(Axis.Z);
+
+        const jailMinX = jail_min_pos.getValue(Axis.X);
+        const jailMinZ = jail_min_pos.getValue(Axis.Z);
+
+        const jailMaxX = jail_max_pos.getValue(Axis.X);
+        const jailMaxZ = jail_max_pos.getValue(Axis.Z);
+        
+
+        if ((to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z)))
+        || !((playerX >= jailMinX && playerX <= jailMaxX) && (playerZ >= jailMinZ && playerZ <= jailMaxZ))
+        ) {
             if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
                 player.teleport(to_pos)
                 player.say("tp")
