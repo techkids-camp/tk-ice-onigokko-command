@@ -14,9 +14,14 @@ custom.hole()
 custom.jump()
 custom.spy()
 custom.tp()
+custom.ice()
 ```
 
 ```template
+player.onChat("ice", function () {
+    custom.ice()
+})
+
 player.onChat("up", function () {
     custom.speed()
 })
