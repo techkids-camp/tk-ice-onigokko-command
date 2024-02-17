@@ -25,7 +25,7 @@ namespace custom {
 
     //% blockID=ice
     //% block="こおり"
-    export function icd(): void {
+    export function ice(): void {
     s_pos = posCamera(-1, 0, -2).toWorld()
     e_pos = posCamera(1, 2, -2).toWorld()
     player.say(s_pos)
