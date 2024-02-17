@@ -26,22 +26,22 @@ namespace custom {
     //% blockID=ice
     //% block="こおり"
     export function ice(): void {
-    s_pos = posCamera(-1, 0, -2).toWorld()
-    e_pos = posCamera(1, 2, -2).toWorld()
-    player.say(s_pos)
-    blocks.replace(
-    PACKED_ICE,
-    AIR,
-    s_pos,
-    e_pos
-    )
-    loops.pause(10000)
-    blocks.replace(
-    AIR,
-    PACKED_ICE,
-    s_pos,
-    e_pos
-    )
+        s_pos = posCamera(-1, 0, -2).toWorld()
+        e_pos = posCamera(1, 2, -2).toWorld()
+        player.say(s_pos)
+        blocks.replace(
+        PACKED_ICE,
+        AIR,
+        s_pos,
+        e_pos
+        )
+        loops.pause(10000)
+        blocks.replace(
+        AIR,
+        PACKED_ICE,
+        s_pos,
+        e_pos
+        )
     }
 
     //% blockId=speed
