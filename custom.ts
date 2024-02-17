@@ -39,7 +39,7 @@ namespace custom {
     //% blockId=spy
     //% block="スパイダー"
     export function spy(): void {
-        s_pos = posCamera(-1, 0, -2).toWorld()
+    s_pos = posCamera(-1, 0, -2).toWorld()
     to_pos = posCamera(1, 0, -4).toWorld()
     blocks.replace(
     COBWEB,
@@ -48,21 +48,16 @@ namespace custom {
     to_pos
     )
     loops.pause(10000)
-    blocks.replace(
-    AIR,
-    COBWEB,
-    s_pos,
-    to_pos
-    )
+    blocks.replace(AIR,COBWEB,s_pos,to_pos)
     }
 
     //% blockId=tp
     //% block="テレポート"
     export function tp(): void {
-        min_pos = world(1097, 76, 1165)
-        max_pos = world(1271, 0, 1287)
+        max_pos = world(282, -55, 261)
+        min_pos = world(201, -50, 233)
 
-        jail_min_pos = world(1126, 72, 1192)
+        jail_min_pos = world(185,-51,208)
         jail_max_pos = world(1151, 64, 1224)
 
         p_direction = player.getOrientation()
