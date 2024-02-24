@@ -10,7 +10,6 @@
 ```ghost
 
 custom.speed()
-custom.hole()
 custom.jump()
 custom.spy()
 custom.tp()
@@ -30,9 +29,6 @@ player.onChat("tp", function () {
 })
 player.onChat("ju", function () {
     custom.jump()
-})
-player.onChat("ho", function () {
-    custom.hole()
 })
 player.onChat("sp", function () {
     custom.spy()
