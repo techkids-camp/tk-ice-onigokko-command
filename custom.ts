@@ -74,11 +74,11 @@ namespace custom {
     //% blockId=tp
     //% block="テレポート"
     export function tp(): void {
-        max_pos = world(282, -55, 261)
-        min_pos = world(201, -50, 233)
+        max_pos = world(282, -48, 261)
+        min_pos = world(110,-54,138)
 
-        jail_min_pos = world(185,-51,208)
-        jail_max_pos = world(1151, 64, 1224)
+        jail_min_pos = world(182,-55,205)
+        jail_max_pos = world(201,-50, 233)
 
         p_direction = player.getOrientation()
         // player.say(p_direction)
