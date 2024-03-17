@@ -17,7 +17,7 @@ custom.ice()
 ```
 
 ```template
-player.onChat("ice", function () {
+player.onChat("ic", function () {
     custom.ice()
 })
 
