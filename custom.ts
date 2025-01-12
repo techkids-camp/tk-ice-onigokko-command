@@ -30,17 +30,17 @@ namespace custom {
         e_pos = posCamera(1, 2, -2).toWorld()
         player.say(s_pos)
         blocks.replace(
-        PACKED_ICE,
-        AIR,
-        s_pos,
-        e_pos
+            PACKED_ICE,
+            AIR,
+            s_pos,
+            e_pos
         )
         loops.pause(10000)
         blocks.replace(
-        AIR,
-        PACKED_ICE,
-        s_pos,
-        e_pos
+            AIR,
+            PACKED_ICE,
+            s_pos,
+            e_pos
         )
     }
 
@@ -59,26 +59,26 @@ namespace custom {
     //% blockId=spy
     //% block="スパイダー"
     export function spy(): void {
-    s_pos = posCamera(-1, 0, -2).toWorld()
-    to_pos = posCamera(1, 0, -4).toWorld()
-    blocks.replace(
-    COBWEB,
-    AIR,
-    s_pos,
-    to_pos
-    )
-    loops.pause(10000)
-    blocks.replace(AIR,COBWEB,s_pos,to_pos)
+        s_pos = posCamera(-1, 0, -2).toWorld()
+        to_pos = posCamera(1, 0, -4).toWorld()
+        blocks.replace(
+            COBWEB,
+            AIR,
+            s_pos,
+            to_pos
+        )
+        loops.pause(10000)
+        blocks.replace(AIR, COBWEB, s_pos, to_pos)
     }
 
     //% blockId=tp
     //% block="テレポート"
     export function tp(): void {
-        max_pos = world(282, -48, 261)
-        min_pos = world(110,-54,138)
+        max_pos = world(281, 0, 561)
+        min_pos = world(109, -55, 394)
 
-        jail_min_pos = world(182,-55,205)
-        jail_max_pos = world(201,-50, 233)
+        jail_min_pos = world(222, -54, 501)
+        jail_max_pos = world(269, -54, 548)
 
         p_direction = player.getOrientation()
         // player.say(p_direction)
@@ -115,10 +115,10 @@ namespace custom {
 
         const jailMaxX = jail_max_pos.getValue(Axis.X);
         const jailMaxZ = jail_max_pos.getValue(Axis.Z);
-        
+
 
         if ((to_pos.getValue(Axis.X) > min_pos.getValue(Axis.X) && to_pos.getValue(Axis.X) < max_pos.getValue(Axis.X) && (to_pos.getValue(Axis.Z) > min_pos.getValue(Axis.Z) && to_pos.getValue(Axis.Z) < max_pos.getValue(Axis.Z)))
-        && !((playerX >= jailMinX && playerX <= jailMaxX) && (playerZ >= jailMinZ && playerZ <= jailMaxZ))
+            && !((playerX >= jailMinX && playerX <= jailMaxX) && (playerZ >= jailMinZ && playerZ <= jailMaxZ))
         ) {
             if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
                 player.teleport(to_pos)
