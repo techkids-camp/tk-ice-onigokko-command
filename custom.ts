@@ -9,7 +9,6 @@
  */
 //% weight=100 color=#0fbc11 icon="\uf06b" block="おにごっこ"
 namespace custom {
-
     let wait_time = 0
     let p_direction = 0
     let hole_direction = 0
@@ -22,6 +21,9 @@ namespace custom {
 
     let jail_min_pos: Position = null
     let jail_max_pos: Position = null
+
+    let fire_flag = true
+    let back_flag = true
 
     //% blockID=ice
     //% block="こおり"
@@ -128,4 +130,31 @@ namespace custom {
             player.say("ここではつかえないよ")
         }
     }
-}
+
+    export function ct():void{
+        
+    }
+
+    //% blockId=fire
+    //% block="ほのお"
+    export function fire(): void {
+        if (fire_flag) {
+            fire_flag = false
+            player.execute("function fire/0")
+            loops.pause(100);
+            player.execute("function fire/1")
+        }
+        else{
+            player.say("もうすこしじかんをおいてみよう")
+        }
+        loops.runInBackground(function () {
+            if (!fire_flag && back_flag){
+                back_flag = false
+                player.say("off")
+                loops.pause(20000)
+                back_flag,fire_flag = true
+                player.say("on")
+            }
+        })
+    }
+} 
