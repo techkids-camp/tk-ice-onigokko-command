@@ -8,30 +8,43 @@
 みぎしたの![](https://raw.githubusercontent.com/camp-minecraft/TechkidsCampTutorial/master/images/playbutton.png)をおしておこう。
 
 ```ghost
-
-custom.speed()
-custom.jump()
-custom.spy()
-custom.tp()
-custom.ice()
-```
-
-```template
 player.onChat("ic", function () {
     custom.ice()
 })
-
+player.onChat("fi", function () {
+    custom.fire()
+})
 player.onChat("up", function () {
     custom.speed()
 })
 player.onChat("tp", function () {
     custom.tp()
 })
+player.onChat("sp", function () {
+    custom.spy()
+})
 player.onChat("ju", function () {
     custom.jump()
+})
+```
+
+```template
+player.onChat("ic", function () {
+    custom.ice()
+})
+player.onChat("fi", function () {
+    custom.fire()
+})
+player.onChat("up", function () {
+    custom.speed()
+})
+player.onChat("tp", function () {
+    custom.tp()
 })
 player.onChat("sp", function () {
     custom.spy()
 })
-
+player.onChat("ju", function () {
+    custom.jump()
+})
 ```
