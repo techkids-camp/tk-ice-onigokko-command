@@ -125,11 +125,14 @@ namespace custom {
             if (blocks.testForBlock(AIR, to_pos) && blocks.testForBlock(AIR, world(to_pos.getValue(Axis.X), to_pos.getValue(Axis.Y) + 1, to_pos.getValue(Axis.Z)))) {
                 player.teleport(to_pos)
                 player.say("tp")
+            } else {
+                player.say("ブロックがあるからつかえないよ")
             }
         } else {
             player.say("ここではつかえないよ")
         }
     }
+    
 
     export function ct():void{
         
