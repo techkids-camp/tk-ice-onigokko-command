@@ -96,13 +96,13 @@ namespace custom {
         // player.say(hole_direction)
         // 穴の向きをhole_direction で設定
         if (hole_direction == 1) {
-            to_pos = pos(0, 1, 15)
+            to_pos = pos(0, 1, 5)
         } else if (hole_direction == 2) {
-            to_pos = pos(-15, 1, 0)
+            to_pos = pos(-5, 1, 0)
         } else if (hole_direction == 3) {
-            to_pos = pos(0, 1, -15)
+            to_pos = pos(0, 1, -5)
         } else if (hole_direction == 4) {
-            to_pos = pos(15, 1, 0)
+            to_pos = pos(5, 1, 0)
         } else {
 
         }
