@@ -132,10 +132,10 @@ namespace custom {
             player.say("ここではつかえないよ")
         }
     }
-    
 
-    export function ct():void{
-        
+
+    export function ct(): void {
+
     }
 
     //% blockId=fire
@@ -147,17 +147,18 @@ namespace custom {
             loops.pause(100);
             player.execute("function fire/1")
         }
-        else{
-            player.say("もうすこしじかんをおいてみよう")
+        else {
+            player.say("「ほのお」をつかうには、もうすこしじかんをおいてみよう。")
         }
-        loops.runInBackground(function () {
-            if (!fire_flag && back_flag){
-                back_flag = false
-                player.say("off")
+        if (back_flag) {
+            back_flag = false
+            loops.runInBackground(function () {
+                player.say("「ほのお」をつかった！")
                 loops.pause(20000)
-                back_flag,fire_flag = true
-                player.say("on")
+                back_flag, fire_flag = true
+                player.say("「ほのお」がつかえるようになった！")
             }
-        })
+            )
+        }
     }
 } 
