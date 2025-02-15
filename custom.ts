@@ -144,7 +144,7 @@ namespace custom {
         if (fire_flag) {
             fire_flag = false
             player.execute("function fire/0")
-            loops.pause(100);
+            loops.pause(500);
             player.execute("function fire/1")
         }
         else {
